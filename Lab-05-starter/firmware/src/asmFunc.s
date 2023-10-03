@@ -67,8 +67,47 @@ asmFunc:
      * Use it to test the C test code */
     
     /*** STUDENTS: Place your code BELOW this line!!! **************/
-
-    
+	
+     LDR r6, =dividend/*Load the address of the 'dividend' variable into r6*/
+     LDR r7, =divisor/*Load the address of the 'divisor' variable into r7*/
+     STR r0,[r6]/*Store the value in r0 in the memory location pointed to dividend*/
+     STR r1,[r7]/*Store the value in r1 in the memory location pointed to divisor*/
+     
+     LDR r11,=we_have_a_problem/*Load the address of the 'we_have_a_problem' variable into r11*/
+     LDR r2,=1/*Load the address of the 1 into r11*/
+     
+     LDR r8, =quotient/*Load the address of the 'quotient' variable into r8*/
+     LDR r9, =mod/*Load the address of the 'mod' variable into r9*/
+     LDR r10, =0/*Load the address of the 0 into r10*/
+     LDR r3, =0/*Load the address of the 0 into r3*/
+     
+     STR r10,[r8]/*Store the value in r10 in the memory location pointed to quotient*/
+     STR r10,[r9]/*Store the value in r10 in the memory location pointed to mod*/
+     
+     CMP r0,0/*Compare the value in dividend with 0*/
+     BEQ error/*Branch to 'error' if 'dividend' is EQUAL to 0*/
+     CMP r1,0/*Compare the value in divisor with 0*/
+     BEQ error/*Branch to 'error' if 'divisor' is EQUAL to 0*/
+     
+     do_it:/*Start the loop*/
+ 	CMP r0,r1/*Compare r0 (dividend) with r1 (divisor)*/
+ 	BLT final_step/*Branch to "final_step" if r0 is less than r1*/
+ 	ADD r10,r10,r2/*Add r2 (1) to r10 (quotient)*/
+ 	SUBS r0,r0,r1/* Subtract r1 (divisor) from r0 (dividend)*/
+ 	B do_it /*Branch to "do_it"*/
+     
+     error:
+ 	STR r2,[r11]/*Store r2 (1) into the memory location pointed to by r11(we_have_a_problem)*/
+ 	LDR r0,=quotient/*Load the address of the "quotient" label into r0*/
+ 	B done/*Branch to "done"*/
+ 
+     final_step:
+ 	STR r10,[r8]/*Store r10 (quotient) into the memory location pointed to by r8*/
+ 	STR r0,[r9]/*Store r0 (dividend) into the memory location pointed to by r9 (mod)*/
+ 	STR r3,[r11]/*Store r3 (0) into the memory location pointed to by r11(we_have_a_problem)*/
+ 	LDR r0,=quotient/*Load the address of the "quotient" label into r0*/
+ 	B done/*Branch to "done"*/
+ 
     /*** STUDENTS: Place your code ABOVE this line!!! **************/
 
 done:    
