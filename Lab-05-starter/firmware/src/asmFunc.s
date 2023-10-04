@@ -91,7 +91,7 @@ asmFunc:
      
      do_it:/*Start the loop*/
  	CMP r0,r1/*Compare r0 (dividend) with r1 (divisor)*/
- 	BLT final_step/*Branch to "final_step" if r0 is less than r1*/
+ 	BLO final_step/*Branch to "final_step" if r0 is less than r1*/
  	ADD r10,r10,r2/*Add r2 (1) to r10 (quotient)*/
  	SUBS r0,r0,r1/* Subtract r1 (divisor) from r0 (dividend)*/
  	B do_it /*Branch to "do_it"*/

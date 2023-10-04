@@ -263,8 +263,8 @@
         <platform>3</platform>
       </toolsSet>
       <packs>
-        <pack name="CMSIS" vendor="ARM" version="5.8.0"/>
         <pack name="SAME51_DFP" vendor="Microchip" version="3.6.130"/>
+        <pack name="CMSIS" vendor="ARM" version="5.8.0"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>
@@ -1542,7 +1542,7 @@
         <property key="memories.programmemory.ranges" value="0-fffff"/>
         <property key="poweroptions.powerenable" value="false"/>
         <property key="programmerToGoFilePath"
-                  value="C:/Users/harry/OneDrive/Documents/GitHub/CISC-211-Lab-05-Division-Zicheng-Wang/Lab-05-starter/firmware/Lab-05-starter.X/debug/sam_e51_cnano/Lab-05-starter_ptg"/>
+                  value="C:/Users/harry.JULIEDELL/Documents/GitHub/CISC-211-Lab-05-Division-Zicheng-Wang/Lab-05-starter/firmware/Lab-05-starter.X/debug/sam_e51_cnano/Lab-05-starter_ptg"/>
         <property key="programoptions.eraseb4program" value="true"/>
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preservedataflash.ranges"
